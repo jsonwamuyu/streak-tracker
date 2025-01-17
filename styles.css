@@ -2,6 +2,7 @@
 
  :root {
      --orange: orange;
+     --orange-shade: #f4bf5e;
  }
 
  * {
@@ -46,13 +47,10 @@
      font-weight: 400;
  }
 
-
-
  .wrapper {
      margin-bottom: 20px;
      width: 100%
  }
-
 
  .container {
      max-width: 800px;
@@ -139,14 +137,34 @@ form input {
     background-color: transparent;
     color: white;
  }
- .error {
-     color: red;
-     font-size: 0.9em;
+ .habit-items{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+ }
+
+
+ .habit-item{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--orange-shade);
+    padding: 1rem;
+    gap:1rem;
+    color:rgb(33, 33, 68);
  }
 
  @media screen and (min-width:600px) {
     .welcome, .add-habit, .add-habit__details{
         flex-direction: row;
         justify-content: left;
+    }
+    .habit-items{
+        grid-template-columns: repeat(4, 1fr);
+    }
+ }
+
+ @media screen and (min-width:769) {
+    .habit-items{
+        grid-template-columns: repeat(6, 1fr);
     }
  }
