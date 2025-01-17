@@ -53,8 +53,9 @@
  }
 
  .container {
-     max-width: 800px;
+     max-width: 900px;
      margin: 0 auto;
+     padding: 0 2rem;
  }
 
  .bg-orange {
@@ -151,6 +152,16 @@ form input {
     padding: 1rem;
     gap:1rem;
     color:rgb(33, 33, 68);
+    width:100%;
+ }
+
+ .delete-btn{
+    padding: 0.5rem 1rem;
+    background-color: red;
+    color: white;
+    border:none;
+    outline: none;
+    font-weight: 700;
  }
 
  @media screen and (min-width:600px) {
@@ -163,8 +174,11 @@ form input {
     }
  }
 
- @media screen and (min-width:769) {
+ @media screen and (min-width:769px) {
     .habit-items{
         grid-template-columns: repeat(6, 1fr);
+    }
+    .habit-item{
+        justify-content: center;
     }
  }

@@ -28,6 +28,7 @@ function showForm() {
                 </form>
             </div>
         </div>
+        <div id="habit-list"></div>
     `;
 
     // Attach event listener to the close button
@@ -36,6 +37,8 @@ function showForm() {
     // Attach event listener to handle form submission
     document.getElementById("habitForm").addEventListener('submit', handleFormSubmit);
 
+    // Display existing habits
+    displayHabits();
 }
 
 // Function to close the habit form
@@ -45,8 +48,7 @@ function closeForm() {
     getAddHabitForm.innerHTML = "";
     console.log('Closed form');
 }
-// Display existing habits
-displayHabits();
+
 // Function to handle form submission
 function handleFormSubmit(event) {
     event.preventDefault();
@@ -74,6 +76,14 @@ function handleFormSubmit(event) {
     }
 }
 
+// Function to delete a habit
+function deleteHabit(index) {
+    habits.splice(index, 1);
+    localStorage.setItem("habits", JSON.stringify(habits));
+    displayHabits();
+    alert("Habit deleted successfully!");
+}
+
 // Function to display habits below the form
 function displayHabits() {
     const habitList = document.getElementById("habit-list");
@@ -88,10 +98,10 @@ function displayHabits() {
             <div class="habit-item">
                 <img src="${habit.image}" alt="${habit.habit}" style="width:50px; height:50px;">
                 <div>
-                    <p>${habit.startDate}</p>
                     <p><strong>${habit.habit}</strong></p>
-                   
+                    <p>Start Date: ${habit.startDate}</p>
                 </div>
+                <button onclick="deleteHabit(${index})" class="delete-btn">Delete</button>
             </div>
         `;
     });
